@@ -15,22 +15,28 @@ const BorrowContainer = ({
   const [tokenDetails, setTokenDetails] = useState();
 
   useEffect(() => {
-    // changeMenu("Borrow");
-    
-    
     getBorrowedTokens();
-    
+
   }, []);
-  
+
+  const [getDataLoader, setGetDataLoader] = useState(false);
+
   const getBorrowedTokens = async () => {
+
+    setGetDataLoader(true);
     const TotalTokens = await DeNFTContract.connect(web3Signer).totalTokens();
 
-    const ViewAskByCollection = await LendBorrowContract.connect(web3Signer).viewAsksByCollection(DeNFTContract.address, 0, Number(TotalTokens));
-  
-    const ViewAsksByCollectionAndTokenIds = await LendBorrowContract.connect(web3Signer).viewAsksByCollectionAndTokenIds(DeNFTContract.address, ViewAskByCollection[0]);
+    if (Number(TotalTokens) > 0) {
+      const ViewAskByCollection = await LendBorrowContract.connect(web3Signer).viewAsksByCollection(DeNFTContract.address, 0, Number(TotalTokens));
 
-    setLendTokens(ViewAskByCollection.tokenIds);
-    setTokenDetails(ViewAsksByCollectionAndTokenIds.askInfo);
+      const ViewAsksByCollectionAndTokenIds = await LendBorrowContract.connect(web3Signer).viewAsksByCollectionAndTokenIds(DeNFTContract.address, ViewAskByCollection[0]);
+
+      console.log("ViewAsksByCollectionAndTokenIds -- ", ViewAsksByCollectionAndTokenIds.askInfo)
+      setLendTokens(ViewAskByCollection.tokenIds);
+      setTokenDetails(ViewAsksByCollectionAndTokenIds.askInfo);
+    }
+
+    setGetDataLoader(false);
   }
 
   return (
@@ -38,6 +44,7 @@ const BorrowContainer = ({
       lendTokens={lendTokens}
       tokenDetails={tokenDetails}
       getBorrowedTokens={getBorrowedTokens}
+      getDataLoader={getDataLoader}
     />
   )
 }

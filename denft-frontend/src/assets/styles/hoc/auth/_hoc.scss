@@ -1,0 +1,13 @@
+.main-content {
+    .children-container {
+        .instruction-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            h1 {
+                font-family: 'Times New Roman', Times, serif;
+            }
+        }
+    }
+}

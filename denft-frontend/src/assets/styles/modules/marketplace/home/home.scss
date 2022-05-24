@@ -1,6 +1,20 @@
 .marketplace-home-container {
-    height: 100%;
-    display : flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
+
+    .full-height {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+    }
+
+    .No-data-label-home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        h1 {
+            font-family: "Times New Roman", Times, serif;
+        }
+    }
 }

@@ -78,7 +78,21 @@ const NFTs = ({
                             :
                             'NFT #' + ID
                           :
-                          'NFT #' + ID
+                          <>
+                            {'NFT #' + ID}
+                            <hr />
+                            <div className='borrow-nft-detail-container'>
+                              <div>
+                                Interest Amount<br />
+                                Time<br />
+                              </div>
+                              <div>
+                                {console.log("repayInterestAmount -- ", lendTokenDetails.timeInDays)}
+                                {ethers.utils.formatEther(String(Number(lendTokenDetails.repayInterestAmount)))} USDC<br />
+                                {Number(lendTokenDetails.timeInDays) / 60 / 60} Days<br />
+                              </div>
+                            </div>
+                          </>
                       }
                     </Typography>
                 }
@@ -160,9 +174,9 @@ const NFTs = ({
                         </Typography>
                         : ''
                       : <Typography gutterBottom variant="h5" component="div" className="nft-details">
-                      <div className="price-label">NFT PRICE</div>
-                      <div className="price">{ethers.utils.formatEther(String(lendTokenDetails.price))} USDC<br /></div>
-                    </Typography>
+                        <div className="price-label">Collatral Price</div>
+                        <div className="price">{ethers.utils.formatEther(String(lendTokenDetails.price))} USDC<br /></div>
+                      </Typography>
                 }
               </CardContent>
             </CardActionArea>

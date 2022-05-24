@@ -4,24 +4,29 @@ import Repay from './Repay';
 
 function RepayContainer() {
 
-  const [replayableTokens, setReplayabletokens] = useState([]);
-  const [replayableTokensDetails, setreplayableTokensDetails] = useState([]);
+  const [repayableTokens, setrepayableTokens] = useState([]);
+  const [repayableTokensDetails, setrepayableTokensDetails] = useState([]);
+  const [getDataLoader, setGetDataLoader] = useState(false);
 
   const getBorrowalNfts = async () => {
 
+    setGetDataLoader(false);
+    
     try {
       const TotalTokens = await DeNFTContract.connect(web3Signer).totalTokens();
-
+      
       const ViewAskByCollection = await LendBorrowContract.connect(web3Signer).viewAsksByCollectionOfBorrower(DeNFTContract.address, 0, Number(TotalTokens));
 
       const ViewAsksByCollectionAndTokenIds = await LendBorrowContract.connect(web3Signer).viewAsksByCollectionAndTokenIdsOfBorrower(DeNFTContract.address, ViewAskByCollection[0]);
-
-      setReplayabletokens(ViewAskByCollection.tokenIds);
-      setreplayableTokensDetails(ViewAsksByCollectionAndTokenIds.askInfo);
+      
+      setrepayableTokens(ViewAskByCollection.tokenIds);
+      setrepayableTokensDetails(ViewAsksByCollectionAndTokenIds.askInfo);
 
     } catch (error) {
       console.log("Error -> ", error);
     }
+
+    setGetDataLoader(true);
   }
 
   useEffect(() => {
@@ -31,9 +36,10 @@ function RepayContainer() {
   return (
     <>
       <Repay
-        replayableTokens={replayableTokens}
-        replayableTokensDetails={replayableTokensDetails}
+        repayableTokens={repayableTokens}
+        repayableTokensDetails={repayableTokensDetails}
         getBorrowalNfts={getBorrowalNfts}
+        getDataLoader={getDataLoader}
       />
     </>
   )

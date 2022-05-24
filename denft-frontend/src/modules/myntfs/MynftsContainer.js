@@ -24,9 +24,11 @@ const menuItems = [
     }
 ]
 
-const MynftsContainer = (props) => {
 
+const MynftsContainer = (props) => {
+    
     const [selectedMenuItem, setSelectedMenuItem] = useState(menuItems[0].key);
+    const [mynftDataLoader, setMynftDataLoader] = useState(false);
 
     const onMenuClick = (key = menuItems[0].key) => {
         setSelectedMenuItem(key);
@@ -68,6 +70,8 @@ const MynftsContainer = (props) => {
                             data={props.getdata}
                             updateNFTs={props.updateList}
                             updateAccount={props.updateAccountAddress}
+                            mynftDataLoader={mynftDataLoader}
+                            setMynftDataLoader={setMynftDataLoader}
                         />
                     )
                 }

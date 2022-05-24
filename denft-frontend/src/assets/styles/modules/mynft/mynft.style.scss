@@ -32,20 +32,77 @@
     }
   }
 
-
   .main-container-mynft {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: calc(100% - 54px);
-    overflow-y: auto;
+    height: 100%;
+    .full-height {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+
+      .No-data-label-mynft {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        h1 {
+          font-family: "Times New Roman", Times, serif;
+        }
+      }
+    }
   }
   .header-container {
     width: 100%;
     height: 100%;
     overflow-y: auto;
   }
-  
+}
+
+.repay-header-container {
+  height: 100%;
+  .repay-main-container-mynft {
+    height: 100%;
+    .full-height {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+    }
+
+    .No-data-label-repay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+      }
+    }
+  }
+}
+
+.fractional-container {
+  height: 100%;
+
+  .full-height {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+  }
+
+  .No-data-label-mynft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    h1 {
+      font-family: "Times New Roman", Times, serif;
+    }
+  }
 }
 
 .alert {

@@ -9,6 +9,7 @@ import MarketPlace from './modules/marketPlace/MarketplaceContainer';
 import MintContainer from './modules/mint/MintContainer';
 import MynftsContainer from './modules/myntfs/MynftsContainer';
 import BuyCrypto from './scenes/buy-crypto/BuyCrypto';
+import Auth from './hoc/auth';
 
 const Routes = () => (
   <Router
@@ -16,19 +17,19 @@ const Routes = () => (
   >
     <Fragment>
       <Switch>
-        <Route exact path="/" component={MarketPlace} />
+        <Route exact path="/" component={Auth(MarketPlace)} />
       </Switch>
       <Switch>
-        <Route exact path="/marketplace" component={MarketPlace} />
+        <Route exact path="/marketplace" component={Auth(MarketPlace)} />
       </Switch>
       <Switch>
-        <Route exact path="/mint" component={MintContainer} />
+        <Route exact path="/mint" component={Auth(MintContainer)} />
       </Switch>
       <Switch>
-        <Route exact path="/my-nfts" component={MynftsContainer} />
+        <Route exact path="/my-nfts" component={Auth(MynftsContainer)} />
       </Switch>
       <Switch>
-        <Route exact path="/buy-crypto" component={BuyCrypto} />
+        <Route exact path="/buy-crypto" component={Auth(BuyCrypto)} />
       </Switch>
       <Dialogs />
     </Fragment>

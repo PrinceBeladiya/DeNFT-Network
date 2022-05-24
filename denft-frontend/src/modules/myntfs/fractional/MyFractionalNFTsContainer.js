@@ -20,9 +20,12 @@ const MyFractionalNFTsContainer = ({
 
   const [vaultID, setVaultID] = useState('');
   const [totalSup, setTotalSup] = useState('');
+  const [getDataLoader, setGetDataLoader] = useState(false);
 
   const getOwnerTokens = async () => {
 
+    setGetDataLoader(true);
+    
     const { ethereum } = window;
     let originalNFTs = [];
     let NFTs = [];
@@ -30,7 +33,7 @@ const MyFractionalNFTsContainer = ({
     let NFTOwners = [];
     let NFTTotalSupply = [];
     let j = 0;
-
+    
     const totalFractionalTokens = await FractionalERC721FactoryContract.connect(web3Signer).vaultCount();
 
     for (let i = 0; i < totalFractionalTokens; i++) {
@@ -60,6 +63,8 @@ const MyFractionalNFTsContainer = ({
     updateOwnerList(NFTOwners);
     setVaultID(NFTs);
     setTotalSup(NFTTotalSupply);
+
+    setGetDataLoader(false);
   }
 
   useEffect(() => {
@@ -75,6 +80,7 @@ const MyFractionalNFTsContainer = ({
       vaultID={vaultID}
       totalSupply={totalSup}
       getFractionalOwnerTokens={getOwnerTokens}
+      getDataLoader={getDataLoader}
     />
   )
 }

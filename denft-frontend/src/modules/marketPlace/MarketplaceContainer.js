@@ -3,6 +3,7 @@ import MainTemplateContainer from '../../shared/templates/MainTemplate/MainTempl
 import HomeContainer from './home/HomeContainer';
 import BorrowContainer from './borrow/BorrowContainer';
 import { withRouter } from 'react-router';
+import Auth from '../../hoc/auth';
 
 const MarketplaceContainer = ({ history }) => {
     
