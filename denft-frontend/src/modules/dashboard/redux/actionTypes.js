@@ -1,0 +1,6 @@
+export const SET_SELECTED_MENU_ITEM = 'SET_SELECTED_MENU_ITEM';
+export const FLUSH_SELECTED_MENU_ITEM = 'FLUSH_SELECTED_MENU_ITEM';
+export const OPEN_DIALOG = 'OPEN_DIALOG';
+export const CLOSE_DIALOG = 'CLOSE_DIALOG';
+export const MENU_NAME = 'MENU_NAME';
+export const NETWORK = "NETWORK";

@@ -1,0 +1,4 @@
+export const SELLABLE_NFT = 'SELLABLE_NFT';
+export const SELLABLE_NFT_OWNER = 'SELLABLE_NFT_OWNER';
+export const SELLABLE_NFT_PRICE = 'SELLABLE_NFT_PRICE';
+export const MENU = 'MENU';
