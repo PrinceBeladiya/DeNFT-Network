@@ -32,7 +32,7 @@ DeNFT Network is a prime solution for NFTs. We are providing multiple solutions 
 
 # Demo Video
 
-[https://youtu.be/a7FTBKMYAQM](https://youtu.be/a7FTBKMYAQM "Demo Video")
+[https://youtu.be/jPgg8Jh51Jc](https://youtu.be/jPgg8Jh51Jc "DeNFT Demo")
 
 # Future Work
 
@@ -41,7 +41,6 @@ DeNFT Network is a prime solution for NFTs. We are providing multiple solutions 
 - Dutch Auction & Airdrop for Fractional NFTs.
 - Better User Experience.
 - Support for other networks and wallets.
-
 
 # Deployed Addresses
 
